@@ -3,17 +3,18 @@ import { NgModule } from '@angular/core';
 import { UiModule } from './ui/ui.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { TareaCreadaComponent } from './tarea-creada/tarea-creada.component';
 import { TareaEnProcesoComponent } from './tarea-en-proceso/tarea-en-proceso.component';
 import { TareaTerminadaComponent } from './tarea-terminada/tarea-terminada.component';
 import { EstadoTareaComponent } from './estado-tarea/estado-tarea.component';
-
+import { GestionTareasComponent } from './gestion-tareas/gestion-tareas.component';
 const appRoutes: Routes = [
 
   { path: 'estados', component: EstadoTareaComponent },
+
  
 
 ];
@@ -24,13 +25,18 @@ const appRoutes: Routes = [
     TareaCreadaComponent,
     TareaEnProcesoComponent,
     TareaTerminadaComponent,
-    EstadoTareaComponent
+    EstadoTareaComponent,
+    GestionTareasComponent,
   ],
   imports: [
     BrowserModule,
     UiModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(
+      appRoutes
+      //{ enableTracing: true } // <-- debugging purposes only
+    ),
   ],
   providers: [],
   bootstrap: [AppComponent]
