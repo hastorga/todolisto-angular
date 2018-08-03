@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Tarea, EstadoTarea } from './tarea';
 import { TareaService } from './tarea.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,7 +18,7 @@ export class AppComponent implements OnInit {
 
   constructor(public tareaService: TareaService) {
     this.tareas = [];
-    this.newTarea = new Tarea(null, null, null, null, null);
+    this.newTarea = new Tarea(null, null, null, null, null,null,null);
   }
 
   ngOnInit() {
@@ -36,8 +37,9 @@ export class AppComponent implements OnInit {
   }
 
   crearTarea() {
+    this.newTarea.nombre_estado= this.estado2str(0);
     console.log(this.newTarea);
-    this.tareaService.crearTarea(this.newTarea);
+   
   }
 
   estado2str(e: EstadoTarea) {
