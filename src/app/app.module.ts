@@ -11,6 +11,7 @@ import { TareaEnProcesoComponent } from './tarea-en-proceso/tarea-en-proceso.com
 import { TareaTerminadaComponent } from './tarea-terminada/tarea-terminada.component';
 import { EstadoTareaComponent } from './estado-tarea/estado-tarea.component';
 import { GestionTareasComponent } from './gestion-tareas/gestion-tareas.component';
+import { SearchPipe } from './search.pipe';
 const appRoutes: Routes = [
 
   { path: '', component: GestionTareasComponent  },
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
     TareaTerminadaComponent,
     EstadoTareaComponent,
     GestionTareasComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
