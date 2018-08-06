@@ -1,0 +1,30 @@
+<div class="col-sm-offset-2 col-sm-10"></div>
+
+
+  <head>
+      <meta charset="utf-8" />
+      <title>Lista de Estados </title>
+      <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+    </head>
+
+<br>
+
+<div *ngIf="estados"  >
+  <table class="table table-hover">
+    <thead>
+      <tr align="center">
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let estado of estados" align="center">
+       
+        <td>{{ estado.id }}</td>
+        <td>{{ estado.nombre }}</td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+
