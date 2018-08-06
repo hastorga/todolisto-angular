@@ -70,22 +70,10 @@ export class GestionTareasComponent implements OnInit {
     );
 
   }
-
-  // editarTarea(tareaSeleccionada){
-  //   this.tareaService.updateTarea(this.tareaSeleccionada, this.tareaSeleccionada.id)
-  //   .subscribe(res => {
-  //       tareaSeleccionada = res;
-  //       this.router.navigated = false;
-  //       this.router.navigate([this.router.url]);
-  //       console.log("tarea: "+res);
-  //
-  //     }, (err) => {
-  //       console.log(err);
-  //     }
-  //   );
-  //
-  // }
-
+  filtrarTareas() {
+    this.tareasMostradas = this.tareas.filter(t => t.titulo);
+    // this.tareasMostradas = this.tareas.filter(t => t.titulo.startsWith('a') );
+}
 
   estado2str(e: EstadoTarea) {
     switch (e) {
