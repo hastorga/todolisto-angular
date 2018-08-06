@@ -26,8 +26,8 @@ export class TareaService {
     return this.http.put(`${this.url_tareas}${id}/`, tarea)
   }
 
-  deleteOrganizacion(id: String) {
-    return this.http.delete(`${this.url_tareas}`)
+  deleteTarea(id: String) {
+    return this.http.delete(`${this.url_tareas}${id}/`)
   }
 
   postTarea(tarea: Tarea) {
