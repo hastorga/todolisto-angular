@@ -45,14 +45,17 @@ export class GestionTareasComponent implements OnInit {
     this.tareaService.postTarea(this.newTarea)
     .subscribe(res => {
         this.newTarea = res;
+        this.router.navigated = false;
+        this.router.navigate([this.router.url]);
         console.log("tarea: "+res);
-        setTimeout(() =>{
-          this.router.navigate(['']);
-        }, 3000)
+        
+        
       }, (err) => {
         console.log(err);
       }
+      
     );
+   
   }
 
   // crearTarea() {

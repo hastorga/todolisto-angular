@@ -13,6 +13,8 @@ import { EstadoTareaComponent } from './estado-tarea/estado-tarea.component';
 import { GestionTareasComponent } from './gestion-tareas/gestion-tareas.component';
 const appRoutes: Routes = [
 
+  { path: '', component: GestionTareasComponent  },
+
   { path: 'estados', component: EstadoTareaComponent },
 
  
