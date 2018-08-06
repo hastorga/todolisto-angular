@@ -32,6 +32,19 @@ export class GestionTareasComponent implements OnInit {
 
   actualizarTarea(t: Tarea) {
     console.log(`La tarea ${t} fue actualizada!`);
+
+    this.tareaService.updateTarea(t, t.id)
+    .subscribe(res => {
+        t = res;
+        this.router.navigated = false;
+        this.router.navigate([this.router.url]);
+        console.log("tarea: "+res);
+
+      }, (err) => {
+        console.log(err);
+      }
+    );
+
   }
 
   seleccionarTarea(t: Tarea) {
@@ -48,21 +61,31 @@ export class GestionTareasComponent implements OnInit {
         this.router.navigated = false;
         this.router.navigate([this.router.url]);
         console.log("tarea: "+res);
-        
-        
+
+
       }, (err) => {
         console.log(err);
       }
-      
+
     );
-   
+
   }
 
-  // crearTarea() {
-  //   this.newTarea.nombre_estado= this.estado2str(0);
-  //   console.log(this.newTarea);
-  //   this.tareaService.crearTarea(this.newTarea);
+  // editarTarea(tareaSeleccionada){
+  //   this.tareaService.updateTarea(this.tareaSeleccionada, this.tareaSeleccionada.id)
+  //   .subscribe(res => {
+  //       tareaSeleccionada = res;
+  //       this.router.navigated = false;
+  //       this.router.navigate([this.router.url]);
+  //       console.log("tarea: "+res);
+  //
+  //     }, (err) => {
+  //       console.log(err);
+  //     }
+  //   );
+  //
   // }
+
 
   estado2str(e: EstadoTarea) {
     switch (e) {
