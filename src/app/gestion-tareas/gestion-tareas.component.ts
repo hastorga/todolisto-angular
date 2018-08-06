@@ -73,7 +73,7 @@ export class GestionTareasComponent implements OnInit {
 
   }
   filtrarTareas() {
-   this.tareas.search(t => t.titulo);
+   this.tareas.filter(t => t.titulo);
 }
 
   estado2str(e: EstadoTarea) {

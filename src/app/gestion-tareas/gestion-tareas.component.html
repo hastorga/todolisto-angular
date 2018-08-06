@@ -55,7 +55,7 @@
             <th>Titulo</th>
             <th>Estado</th>
           </tr>
-          <tr *ngFor="let t of tareas | search: searchText"
+          <tr *ngFor="let t of tareas | filter: searchText"
             [class.selected]="t === tareaSeleccionada">
             <td>{{ t.id }}</td>
             <td>
