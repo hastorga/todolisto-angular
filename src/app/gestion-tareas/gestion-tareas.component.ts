@@ -36,7 +36,7 @@ export class GestionTareasComponent implements OnInit {
 
       }, (err) => {
         console.log(err);
-      }<
+      }
     );
 
   }
