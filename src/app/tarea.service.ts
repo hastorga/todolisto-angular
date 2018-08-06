@@ -22,7 +22,7 @@ export class TareaService {
   //   return this.http.post(`${this.url_tareas}`, tarea)
   // }
 
-  updateTarea(tarea: Object, id: String) {
+  updateTarea(tarea: Object, id: number) {
     return this.http.put(`${this.url_tareas}${id}/`, tarea)
   }
 
