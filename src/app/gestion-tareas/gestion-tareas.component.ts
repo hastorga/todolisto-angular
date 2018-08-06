@@ -17,6 +17,8 @@ export class GestionTareasComponent implements OnInit {
   tareaSeleccionada: Tarea;
   tareas: Array<Tarea>;
   newTarea: any;
+  tareasMostradas: Array<Tarea>;
+
 
   constructor(public tareaService: TareaService,  private router: Router) {
     this.tareas = [];
@@ -30,7 +32,7 @@ export class GestionTareasComponent implements OnInit {
         });
   }
 
-  actualizarTarea(t: Tarea) {
+  actualizarTarea(t: any) {
     console.log(`La tarea ${t} fue actualizada!`);
 
     this.tareaService.updateTarea(t, t.id)
@@ -71,8 +73,7 @@ export class GestionTareasComponent implements OnInit {
 
   }
   filtrarTareas() {
-    this.tareasMostradas = this.tareas.filter(t => t.titulo);
-    // this.tareasMostradas = this.tareas.filter(t => t.titulo.startsWith('a') );
+   this.tareas.search(t => t.titulo);
 }
 
   estado2str(e: EstadoTarea) {
