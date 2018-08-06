@@ -31,7 +31,7 @@ export class TareaService {
   }
 
   updateOrganizacion(organizacion: Object, id: String) {
-    return this.http.put(`${this.url_tareas}/${id}`, organizacion, httpOptions)
+    return this.http.put(`${this.url_tareas}/${id}`, organizacion)
   }
 
   deleteOrganizacion(id: String) {
