@@ -25,12 +25,6 @@ export class GestionTareasComponent implements OnInit {
     this.newTarea = new Tarea(null, null, null, null, null, null, null);
   }
 
-  ngOnInit() {
-    this.tareaService.getTareas()
-        .subscribe((ts: Array<Tarea>) => {
-          this.tareas = ts;
-        });
-  }
 
   actualizarTarea(t: any) {
     console.log(`La tarea ${t} fue actualizada!`);
@@ -38,13 +32,11 @@ export class GestionTareasComponent implements OnInit {
     this.tareaService.updateTarea(t, t.id)
     .subscribe(res => {
         t = res;
-        this.router.navigated = false;
-        this.router.navigate([this.router.url]);
         console.log("tarea: "+res);
 
       }, (err) => {
         console.log(err);
-      }
+      }<
     );
 
   }
@@ -54,24 +46,29 @@ export class GestionTareasComponent implements OnInit {
   }
 
   crearTarea(newTarea){
-    this.newTarea.estado=1;
+    this.newTarea.estado=0;
     this.newTarea.fecha_inicio=null;
     this.newTarea.fecha_termino=null;
     this.tareaService.postTarea(this.newTarea)
     .subscribe(res => {
         this.newTarea = res;
-        this.router.navigated = false;
-        this.router.navigate([this.router.url]);
-        console.log("tarea: "+res);
-
+        this.getTareas();
 
       }, (err) => {
         console.log(err);
       }
 
     );
-
   }
+
+  getTareas(){
+    this.tareaService.getTareas()
+    .subscribe((ts: Array<Tarea>) => {
+        this.tareas = ts;
+      });
+  }
+
+
   filtrarTareas() {
    this.tareas.filter(t => t.titulo);
 }
@@ -82,6 +79,11 @@ export class GestionTareasComponent implements OnInit {
       case EstadoTarea.EnProceso: return 'En Proceso';
       case EstadoTarea.Terminada: return 'Terminada';
     }
+  }
+
+
+  ngOnInit() {
+    this.getTareas();
   }
 
 }

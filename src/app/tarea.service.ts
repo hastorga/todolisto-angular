@@ -12,8 +12,8 @@ export class TareaService {
 
   constructor(private http: HttpClient) { }
 
-  getTareas()  {
-    return this.http.get(`${this.url_tareas}`)
+  getTareas(): Observable<any>  {
+    return this.http.get<Array<any>>(this.url_tareas);
   }
 
   updateTarea(tarea: Tarea, id: number) {
@@ -26,8 +26,8 @@ export class TareaService {
   }
 
   postTarea(tarea: Tarea) {
-    location.reload();
     return this.http.post(`${this.url_tareas}`, tarea)
+
   }
 
 
