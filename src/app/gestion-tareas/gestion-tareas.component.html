@@ -44,13 +44,18 @@
     </div>
 
     <div class="col-md-8" style="border: 1px solid black;">
+      <br>
+      <input type="text" class="form-control"
+              name="searchString" placeholder="Ingresa título de tarea"
+              [(ngModel)]="searchText">
+      <br>
         <table class="table">
           <tr>
             <th>#</th>
             <th>Titulo</th>
             <th>Estado</th>
           </tr>
-          <tr *ngFor="let t of tareas;"
+          <tr *ngFor="let t of tareas | search: searchText"
             [class.selected]="t === tareaSeleccionada">
             <td>{{ t.id }}</td>
             <td>
