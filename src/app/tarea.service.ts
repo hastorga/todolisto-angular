@@ -17,13 +17,13 @@ export class TareaService {
   getTareas()  {
     return this.http.get(`${this.url_tareas}`)
   }
- 
+
   // crearTarea(tarea: Object) {
   //   return this.http.post(`${this.url_tareas}`, tarea)
   // }
 
-  updateOrganizacion(organizacion: Object, id: String) {
-    return this.http.put(`${this.url_tareas}`, organizacion)
+  updateTarea(tarea: Object, id: String) {
+    return this.http.put(`${this.url_tareas}${id}/`, tarea)
   }
 
   deleteOrganizacion(id: String) {
@@ -36,7 +36,7 @@ export class TareaService {
 
 
 
- 
+
 
 
 }
