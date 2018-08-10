@@ -20,7 +20,7 @@ export class TareaService {
     return this.http.put(`${this.url_tareas}${id}/`, tarea)
   }
 
-  deleteTarea(id: String) {
+  deleteTarea(id: number) {
     return this.http.delete(`${this.url_tareas}${id}/`)
 
   }

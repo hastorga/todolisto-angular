@@ -68,6 +68,14 @@ export class GestionTareasComponent implements OnInit {
       });
   }
 
+  deleteTareas(t: Tarea){
+    this.tareaService.deleteTarea(t.id)
+    .subscribe((ts: Array<Tarea>) => {
+        this.tareas = ts;
+      });
+  }
+
+
 
   filtrarTareas() {
    this.tareas.filter(t => t.titulo);
