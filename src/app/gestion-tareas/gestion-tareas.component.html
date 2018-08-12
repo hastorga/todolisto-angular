@@ -54,6 +54,7 @@
             <th>#</th>
             <th>Titulo</th>
             <th>Estado</th>
+            <th></th>
           </tr>
           <tr *ngFor="let t of tareas | filter: searchText"
             [class.selected]="t === tareaSeleccionada">
@@ -65,6 +66,7 @@
               </a>
             </td>
             <td>{{ estado2str(t.estado) }}</td>
+            <td> <button class="btn btn-danger" name="button" (click)="deleteTarea(t)"> Eliminar</button> </td>
           </tr>
         </table>
     </div>

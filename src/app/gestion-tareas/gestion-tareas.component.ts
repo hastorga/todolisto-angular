@@ -68,10 +68,10 @@ export class GestionTareasComponent implements OnInit {
       });
   }
 
-  deleteTareas(t: Tarea){
+  deleteTarea(t: any){
     this.tareaService.deleteTarea(t.id)
-    .subscribe((ts: Array<Tarea>) => {
-        this.tareas = ts;
+    .subscribe(res => {
+        this.getTareas();
       });
   }
 
